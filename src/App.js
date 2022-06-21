@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./App.css";
+import CryptoData from "./components/Landing/CryptoData";
+import Landing from "./components/Landing/Landing";
 
 function App() {
+  const [data, setData] = useState([]);
+
+  const getData = async () => {
+    try {
+      const response = await axios.get("http://localhost:5001");
+
+      if (response.status === 404) {
+        return;
+      }
+      if (response.status === 200) {
+        console.log("response.data", response.data);
+        setData(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Landing data={data} />
+    </>
   );
 }
 

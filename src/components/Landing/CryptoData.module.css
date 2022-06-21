@@ -1,0 +1,29 @@
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list__item {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: #fafafa;
+  color: #333;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  min-width: 7rem;
+}
+.marquee {
+  color: white;
+  display: flex;
+}
+
+.marquee__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1.5rem;
+}
