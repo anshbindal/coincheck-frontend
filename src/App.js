@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
-import CryptoData from "./components/Landing/CryptoData";
+
 import Landing from "./components/Landing/Landing";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001");
+      const response = await axios.get("http://localhost:5001/api/data");
 
       if (response.status === 404) {
         return;

@@ -7,10 +7,6 @@ export default function Main(props) {
   const [selected, setSelected] = useState("");
   const [price, setPrice] = useState("");
 
-  const showPrice = () => {
-    setPrice(`$ ${JSON.parse(selected).price.toFixed(2)}`);
-  };
-
   return (
     <div className={classes.container}>
       <div className={classes.left}>
