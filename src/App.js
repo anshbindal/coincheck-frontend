@@ -9,7 +9,9 @@ function App() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/data");
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/api/data`
+      );
 
       if (response.status === 404) {
         return;
